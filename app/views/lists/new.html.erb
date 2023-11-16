@@ -1,0 +1,10 @@
+<%= simple_form_for(@list) do |f| %>
+  <!-- [...] -->
+  <div class="form-group container mt-5 shadow p-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <div class="text-center">
+    <%= f.button :submit, class: 'btn btn-primary mt-3' %>
+    </div>
+  </div>
+<% end %>

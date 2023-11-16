@@ -1,0 +1,9 @@
+<div class="container p-5 shadow mt-5">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <div class="text-center">
+      <%= f.submit "submit", class: "btn btn-primary rounded" %>
+    </div>
+  <% end %>
+</div>

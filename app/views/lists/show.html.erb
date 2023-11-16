@@ -1,0 +1,44 @@
+<div>
+  <div class="banderol">
+    <img src="https://www.carquefou.fr/medias/2017/12/Bandeau-Au-cinema.jpg" alt="" class="img-fluid">
+  </div>
+  <div class="text-center">
+    <h3 class=""><%= @list.name %></h3>
+  </div>
+  <div class="container text-end">
+    <%= link_to 'add movies', new_list_bookmark_path(@list), class: "btn btn-primary"%>
+  </div>
+  <div class="container mt-2 rounded">
+    <div class="d-flex justify-content-center">
+      <% @list.bookmarks.each do |movie| %>
+        <div class="card m-3" style="width: 18rem;">
+          <img src="<%= movie.movie.poster_url %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="p-1">
+                <h5 class="card-title"><%= movie.movie.title%></h5>
+              </div>
+              <div class="d-flex">
+                <p class="card-text p-1"><%= movie.movie.rating%></p>
+                <div class="p-1" style="color: yellow;">
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="card-text"><%= movie.movie.overview%></p>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="p-1">
+                  <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="card-text p-1"><%= movie.comment%></p>
+              </div>
+              <%= link_to 'delete', bookmark_path(movie), class: 'text-danger p-1', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
